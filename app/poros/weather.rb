@@ -5,7 +5,7 @@ class Weather
     @id = 1
     @current = sanitize_current(hash[:current])
     @today = sanitize_today(hash[:daily].first)
-    @hourly = (sanitize_hourly(hash[:hourly]))[0..8]
+    @hourly = (sanitize_hourly(hash[:hourly][0..7]))
     @daily = sanitize_daily(hash[:daily])
   end
 
