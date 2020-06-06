@@ -24,7 +24,6 @@ gem 'puma', '~> 3.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'simplecov', require: false, group: :test
 gem 'rake'
 gem 'faraday'
 gem 'figaro'
@@ -40,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'simplecov'
 end
 
 group :development do

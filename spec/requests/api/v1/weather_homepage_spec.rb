@@ -19,7 +19,5 @@ describe "Weather information" do
     expect(weather["data"]["attributes"].has_key?("current")).to eq(true)
     expect(weather["data"]["attributes"].has_key?("hourly")).to eq(true)
     expect(weather["data"]["attributes"].has_key?("today")).to eq(true)
-    require "pry"; binding.pry
-
   end
 end
