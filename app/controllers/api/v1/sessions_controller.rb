@@ -1,0 +1,12 @@
+class Api::V1::SessionsController < ApplicationController
+
+  def new
+    user_info = JSON.parse(params["_json"], symbolize_names: true)
+    user = User.find_by(email: user_info[:email])
+    if user.authenticate(user_info[:password])
+      session[:user_id] = user.id
+      render json: UserSerializer.new(user).serialized_json
+    end
+  end
+
+end

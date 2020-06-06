@@ -1,4 +1,4 @@
-class Api::V1::UserController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 
   def create
     user_info = JSON.parse(params["_json"], symbolize_names: true)
