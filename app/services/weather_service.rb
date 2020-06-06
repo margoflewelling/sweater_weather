@@ -6,6 +6,7 @@ class WeatherService
       f.params['lon'] = coordinates[:lng]
       f.params['exclude'] = 'minutely'
       f.params['appid'] = ENV['WEATHER_KEY']
+      f.params['units'] = 'imperial'
     end
     JSON.parse(weather.body, symbolize_names: true)
   end
