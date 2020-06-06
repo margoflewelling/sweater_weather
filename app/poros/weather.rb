@@ -7,7 +7,6 @@ class Weather
     @today = sanitize_today(hash[:daily].first)
     @hourly = (sanitize_hourly(hash[:hourly]))[0..8]
     @daily = sanitize_daily(hash[:daily])
-    require "pry"; binding.pry
   end
 
   def sanitize_current(current_full)
@@ -33,7 +32,6 @@ class Weather
     daily.map do |day|
       day[:dt] = to_day(day[:dt])
       day[:temp] = day[:temp].slice(:min, :max)
-      require "pry"; binding.pry
       day.slice(:dt, :temp, :weather, :rain)
     end
   end
