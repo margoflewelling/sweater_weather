@@ -6,4 +6,9 @@ class SearchResults
     weather_info = Weather.new(weather_json)
   end
 
+  def image(location)
+    img = PhotoService.new.photo(location)
+    photo = Photo.new(location, img)
+  end
+
 end
