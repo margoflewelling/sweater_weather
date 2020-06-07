@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     user_info = JSON.parse(request.body.read, symbolize_names: true)
     user = User.create(user_info)
     if user.save
-      render json: UserSerializer.new(user).serialized_json
+      render json: UserSerializer.new(user).serialized_json, status: :created
     else
       message = user.errors.full_messages.to_sentence
       render json: {status: "error", code: 400, message: message}
