@@ -8,7 +8,7 @@ describe "Logging in" do
                 "password": "123",
                 }
 
-    post '/api/v1/sessions', params: user_info.to_json, as: :json
+    post '/api/v1/sessions', params: user_info, as: :json
     expect(response).to be_successful
     user = JSON.parse(response.body)
     expect(user.is_a? Hash).to eq(true)
@@ -23,7 +23,7 @@ describe "Logging in" do
                 "password": "12",
                 }
 
-    post '/api/v1/sessions', params: user_info.to_json, as: :json
+    post '/api/v1/sessions', params: user_info, as: :json
     expect(response).to be_successful
     error = JSON.parse(response.body)
     expect(error["status"]).to eq("error")

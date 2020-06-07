@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    user_info = JSON.parse(params["_json"], symbolize_names: true)
+    user_info = JSON.parse(request.body.read, symbolize_names: true)
     user = User.create(user_info)
     if user.save
       render json: UserSerializer.new(user).serialized_json

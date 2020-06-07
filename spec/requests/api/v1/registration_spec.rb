@@ -9,7 +9,7 @@ describe "Registration" do
             "password_confirmation": "password"
             }
 
-    post '/api/v1/users', params: user.to_json, as: :json
+    post '/api/v1/users', params: user, as: :json
     expect(response).to be_successful
     user = JSON.parse(response.body)
     expect(user.is_a? Hash).to eq(true)
@@ -24,7 +24,7 @@ describe "Registration" do
             "password_confirmation": "word"
             }
 
-    post '/api/v1/users', params: user.to_json, as: :json
+    post '/api/v1/users', params: user, as: :json
     expect(response).to be_successful
     error = JSON.parse(response.body)
     expect(error["status"]).to eq("error")
@@ -40,7 +40,7 @@ describe "Registration" do
             "password_confirmation": "password"
             }
 
-    post '/api/v1/users', params: user.to_json, as: :json
+    post '/api/v1/users', params: user, as: :json
     expect(response).to be_successful
     error = JSON.parse(response.body)
     expect(error["status"]).to eq("error")
@@ -54,7 +54,7 @@ describe "Registration" do
             "password": "password",
             }
 
-    post '/api/v1/users', params: user.to_json, as: :json
+    post '/api/v1/users', params: user, as: :json
     expect(response).to be_successful
     error = JSON.parse(response.body)
     expect(error["status"]).to eq("error")

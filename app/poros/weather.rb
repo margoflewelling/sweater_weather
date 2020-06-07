@@ -44,7 +44,8 @@ class Weather
   def to_hours(dt)
     time = Time.at(dt).to_datetime
     hour = time.strftime("%I %p")
-    hour[1..-1] if hour[0] == "0"
+    hour = hour[1..-1] if hour[0] == "0"
+    hour
   end
 
   def to_day(dt)

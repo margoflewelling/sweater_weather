@@ -638,7 +638,7 @@ require 'rails_helper'
    it 'can sanitize_hourly' do
      expect(@weather.hourly).to be_a Array
      expect(@weather.hourly.length).to eq(8)
-     expect(@weather.hourly.first.has_key?(:dt)).to eq(true)
+     expect(@weather.hourly.first.has_key?(:hour)).to eq(true)
      expect(@weather.hourly.first.has_key?(:temp)).to eq(true)
      expect(@weather.hourly.first.has_key?(:weather)).to eq(true)
    end
@@ -646,13 +646,13 @@ require 'rails_helper'
    it 'can sanitize_daily' do
      expect(@weather.daily).to be_a Array
      expect(@weather.daily.length).to eq(8)
-     expect(@weather.daily.first.has_key?(:dt)).to eq(true)
+     expect(@weather.daily.first.has_key?(:day)).to eq(true)
      expect(@weather.daily.first.has_key?(:temp)).to eq(true)
      expect(@weather.daily.first.has_key?(:weather)).to eq(true)
    end
 
    it "can convert dt to hours" do
-     expect(@weather.to_hours(1591725600)).to eq("12:00 PM")
+     expect(@weather.to_hours(1591725600)).to eq("12 PM")
    end
 
    it "can convert dt to day" do
