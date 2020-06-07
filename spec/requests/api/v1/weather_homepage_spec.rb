@@ -11,7 +11,7 @@ describe "Weather information" do
   end
 
   it "can get weather data for a location" do
-    get '/api/v1/forecast?location=denver, co'
+    get '/api/v1/forecast?location=seattle, wa'
     expect(response).to be_successful
     weather = JSON.parse(response.body)
     expect(weather.is_a? Hash).to eq(true)
