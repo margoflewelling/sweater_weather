@@ -12,6 +12,6 @@ private
       f.params['address'] = location
       f.params['key'] = ENV['COORDS_KEY']
     end
-  end 
+  end
 
 end
