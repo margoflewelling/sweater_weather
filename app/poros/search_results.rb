@@ -1,7 +1,7 @@
 class SearchResults
 
   def weather(location)
-    coordinates = GeocoordinatesService.new.coordinates(location)
+    coordinates = geocoordinates(location)
     weather_json = WeatherService.new.weather(coordinates)
     weather_info = Weather.new(weather_json)
   end
@@ -12,17 +12,27 @@ class SearchResults
   end
 
   def trip(origin, destination, user)
-    duration = DistanceService.new.duration(origin, destination)
-    destination_weather = weather(destination).current.slice(:temp, :weather)
+    duration = duration(origin, destination)
+    destination_weather = weather(destination).forecast
     Roadtrip.new(user, origin, destination, duration, destination_weather)
   end
 
   def food(origin, destination, search)
-    coordinates = GeocoordinatesService.new.coordinates(destination)
-    restaurant = RestaurantService.new.restaurant(search, coordinates)
-    travel_time = DistanceService.new.duration(origin, destination)
-    forecast = weather(destination).forecast
-    Foodie.new(destination, restaurant, travel_time, forecast)
+    restaurant = RestaurantService.new.restaurant(search, geocoordinates(destination))
+    Foodie.new( destination,
+                restaurant,
+                duration(origin, destination),
+                weather(destination).forecast )
+  end
+
+private
+
+  def duration(origin, destination)
+    DistanceService.new.duration(origin, destination)
+  end
+
+  def geocoordinates(location)
+    GeocoordinatesService.new.coordinates(location)
   end
 
 end
