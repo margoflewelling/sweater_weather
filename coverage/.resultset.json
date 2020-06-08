@@ -327,7 +327,7 @@
           1,
           null,
           1,
-          7,
+          8,
           null,
           null,
           null
@@ -1226,6 +1226,23 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -1246,6 +1263,20 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/owner/turing/mod3/projects/sweater_weather/spec/services/distance_service_spec.rb": {
+        "lines": [
+          1,
+          null,
           1,
           1,
           1,
@@ -1412,10 +1443,10 @@
           1,
           null,
           1,
+          2,
+          2,
+          2,
           1,
-          1,
-          1,
-          0,
           null,
           1,
           1,
@@ -1461,12 +1492,23 @@
           1,
           1,
           1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/owner/turing/mod3/projects/sweater_weather/app/services/distance_service.rb": {
+        "lines": [
           1,
           null,
           1,
-          1,
-          1,
-          1,
+          2,
+          2,
+          2,
+          2,
+          null,
+          2,
+          2,
           null,
           null,
           null
@@ -1523,6 +1565,6 @@
         ]
       }
     },
-    "timestamp": 1591570593
+    "timestamp": 1591577578
   }
 }
