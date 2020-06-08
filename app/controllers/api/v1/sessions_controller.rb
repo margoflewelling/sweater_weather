@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
       session[:user_id] = user.id
       render json: UserSerializer.new(user).serialized_json
     else
-      render json: {status: "error", code: 400, message: "Incorrect password"}
+      render :status => "400", json: {message: "Incorrect password"}
     end
   end
 

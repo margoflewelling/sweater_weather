@@ -11,4 +11,10 @@ class SearchResults
     photo = Photo.new(location, img)
   end
 
+  def trip(origin, destination, user)
+    duration = DistanceService.new.duration(origin, destination)
+    destination_weather = weather(destination).current.slice(:temp, :weather)
+    Roadtrip.new(user, origin, destination, duration, destination_weather)
+  end
+
 end

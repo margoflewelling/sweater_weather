@@ -11,6 +11,7 @@ class Weather
 
   def sanitize_current(current_full)
     current = current_full.slice(:temp, :feels_like, :humidity, :uvi, :weather)
+    current[:time] = current_time(current_full[:dt])
     if current_full.key?(:visibility)
       current[:visibility] = current_full[:visibility]/1609
     else
@@ -51,6 +52,11 @@ class Weather
   def to_day(dt)
     time = Time.at(dt).to_datetime
     time.strftime("%A")
+  end
+
+  def current_time(dt)
+    time = Time.at(dt).to_datetime
+    time.strftime("%I:%M %p, %b %d")
   end
 
 end
