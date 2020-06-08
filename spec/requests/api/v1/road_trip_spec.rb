@@ -28,11 +28,9 @@ require 'rails_helper'
             }
 
       post '/api/v1/road_trip', params: trip, as: :json
-      expect(response).to be_successful
+      expect(response.status).to eq(401)
       trip = JSON.parse(response.body)
       expect(trip).to be_a Hash
       expect(trip["message"]).to eq("Unauthorized")
-      expect(trip["code"]).to eq(401)
-
     end
   end

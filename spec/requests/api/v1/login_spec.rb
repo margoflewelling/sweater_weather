@@ -24,10 +24,9 @@ describe "Logging in" do
                 }
 
     post '/api/v1/sessions', params: user_info, as: :json
-    expect(response).to be_successful
+    expect(response).to_not be_successful
+    expect(response.status).to eq(400)
     error = JSON.parse(response.body)
-    expect(error["status"]).to eq("error")
-    expect(error["code"]).to eq(400)
     expect(error["message"]).to eq("Incorrect password")
   end
 
