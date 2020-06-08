@@ -20,9 +20,9 @@ class SearchResults
   def food(origin, destination, search)
     coordinates = GeocoordinatesService.new.coordinates(destination)
     restaurant = RestaurantService.new.restaurant(search, coordinates)
-    distance = DistanceService.new.duration(origin, destination)
+    travel_time = DistanceService.new.duration(origin, destination)
     forecast = weather(destination).forecast
-    Foodie.new(destination, restaurant, distance, forecast)
+    Foodie.new(destination, restaurant, travel_time, forecast)
   end
 
 end

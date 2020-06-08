@@ -2,6 +2,7 @@ class RestaurantService
 
   def restaurant(search, geocoordinates)
     json = JSON.parse(conn(search, geocoordinates).body, symbolize_names: true)
+    return "No Restaurants Found Matching Your Search" if json[:results_found] == 0
     { name: json[:restaurants].first[:restaurant][:name],
       address: json[:restaurants].first[:restaurant][:location][:address] }
   end
