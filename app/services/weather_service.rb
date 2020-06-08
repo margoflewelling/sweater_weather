@@ -10,4 +10,5 @@ class WeatherService
     end
     JSON.parse(weather.body, symbolize_names: true)
   end
+    
 end
