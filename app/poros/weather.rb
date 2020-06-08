@@ -9,6 +9,11 @@ class Weather
     @daily = sanitize_daily(hash[:daily])
   end
 
+  def forecast
+    {temperature: @current[:temp].round,
+     summary: @current[:weather].first[:main] }
+  end
+
   def sanitize_current(current_full)
     current = current_full.slice(:temp, :feels_like, :humidity, :uvi, :weather)
     current[:time] = current_time(current_full[:dt])

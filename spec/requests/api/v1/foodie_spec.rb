@@ -6,6 +6,7 @@ describe "Foodie" do
     expect(response).to be_successful
     foodie = JSON.parse(response.body)
     expect(foodie.is_a? Hash).to eq(true)
+    require "pry"; binding.pry
     expect(foodie["data"]["attributes"].has_key?("end_location")).to eq(true)
     expect(foodie["data"]["attributes"].has_key?("travel_time")).to eq(true)
     expect(foodie["data"]["attributes"].has_key?("forecast")).to eq(true)

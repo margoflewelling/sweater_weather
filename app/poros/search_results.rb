@@ -21,9 +21,7 @@ class SearchResults
     coordinates = GeocoordinatesService.new.coordinates(destination)
     restaurant = RestaurantService.new.restaurant(search, coordinates)
     distance = DistanceService.new.duration(origin, destination)
-    weather_info = WeatherService.new.weather(coordinates)
-    forecast = {temperature: weather_info[:current][:temp].round,
-               summary: weather_info[:current][:weather].first[:main]}
+    forecast = weather(destination).forecast
     Foodie.new(destination, restaurant, distance, forecast)
   end
 
