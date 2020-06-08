@@ -18,4 +18,21 @@ require 'rails_helper'
       expect(trip["data"]["attributes"].has_key?("duration")).to eq(true)
       expect(trip["data"]["attributes"].has_key?("destination_weather")).to eq(true)
     end
+
+    it 'returns an error if request has an invalid api_key' do
+      margo = User.create!(email: 'margo@example.com', password: "123", password_confirmation: "123")
+      trip = {
+              "origin": "Denver,CO",
+              "destination": "Bozeman, MT",
+              "api_key": "FJGUDUJ8937"
+            }
+
+      post '/api/v1/road_trip', params: trip, as: :json
+      expect(response).to be_successful
+      trip = JSON.parse(response.body)
+      expect(trip).to be_a Hash
+      expect(trip["message"]).to eq("Unauthorized")
+      expect(trip["code"]).to eq(401)
+
+    end
   end
