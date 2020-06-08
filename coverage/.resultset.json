@@ -309,6 +309,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null
@@ -1102,6 +1103,61 @@
           null
         ]
       },
+      "/Users/owner/turing/mod3/projects/sweater_weather/spec/requests/api/v1/foodie_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/owner/turing/mod3/projects/sweater_weather/spec/requests/api/v1/login_spec.rb": {
         "lines": [
           1,
@@ -1385,6 +1441,29 @@
           null
         ]
       },
+      "/Users/owner/turing/mod3/projects/sweater_weather/app/controllers/api/v1/foodie_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/owner/turing/mod3/projects/sweater_weather/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/owner/turing/mod3/projects/sweater_weather/app/controllers/api/v1/sessions_controller.rb": {
         "lines": [
           1,
@@ -1400,12 +1479,6 @@
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/owner/turing/mod3/projects/sweater_weather/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
           null
         ]
       },
@@ -1562,6 +1635,6 @@
         ]
       }
     },
-    "timestamp": 1591584165
+    "timestamp": 1591630447
   }
 }

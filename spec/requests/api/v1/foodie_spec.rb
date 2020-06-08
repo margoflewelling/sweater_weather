@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Foodie" do
   it "can retrieve end city, traveltime, address/name of restaurant and forecast" do
-    get '/api/v1/foodie?start=denver,co&end=pueblo,co&search=italian'
+    get '/api/v1/foodie?start=denver,co&end=asheville,nc&search=taco'
     expect(response).to be_successful
     foodie = JSON.parse(response.body)
     expect(foodie.is_a? Hash).to eq(true)
