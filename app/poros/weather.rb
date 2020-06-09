@@ -2,7 +2,6 @@ class Weather
   attr_reader :id, :current, :today, :hourly, :daily
 
   def initialize(hash)
-    @id = 1
     @current = sanitize_current(hash[:current])
     @today = sanitize_today(hash[:daily].first)
     @hourly = (sanitize_hourly(hash[:hourly][0..7]))
