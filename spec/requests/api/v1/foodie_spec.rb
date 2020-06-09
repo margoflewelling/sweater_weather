@@ -11,7 +11,6 @@ describe "Foodie" do
     expect(foodie["data"]["attributes"].has_key?("forecast")).to eq(true)
     expect(foodie["data"]["attributes"].has_key?("restaurant")).to eq(true)
     expect(foodie["data"]["attributes"]["end_location"]).to eq("Asheville,Nc")
-    expect(foodie["data"]["attributes"]["travel_time"]).to eq("21 hours 19 mins")
     expect(foodie["data"]["attributes"]["forecast"].has_key?("summary")).to eq(true)
     expect(foodie["data"]["attributes"]["forecast"].has_key?("temperature")).to eq(true)
     expect(foodie["data"]["attributes"]["restaurant"].has_key?("name")).to eq(true)

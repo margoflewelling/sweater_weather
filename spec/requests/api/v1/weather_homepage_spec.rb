@@ -10,6 +10,17 @@ describe "Weather information" do
     expect(image["data"]["attributes"].has_key?("city")).to eq(true)
   end
 
+  it "fails gracely if no photo found for city" do
+    get '/api/v1/background?location=clark, co'
+    expect(response).to be_successful
+    image = JSON.parse(response.body)
+    expect(image.is_a? Hash).to eq(true)
+    require "pry"; binding.pry
+    expect(image["data"]["attributes"]["image"]).to eq("No photo found for this location")
+    expect(image["data"]["attributes"].has_key?("city")).to eq(true)
+  end
+
+
   it "can get weather data for a location" do
     get '/api/v1/forecast?location=seattle, wa'
     expect(response).to be_successful

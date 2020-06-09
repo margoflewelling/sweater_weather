@@ -8,7 +8,6 @@ class Api::V1::UsersController < ApplicationController
     else
       message = user.errors.full_messages.to_sentence
       render :status => "400", json: {message: message}
-
     end
   end
 
