@@ -9,7 +9,7 @@ describe "Registration" do
             "password_confirmation": "password"
             }
 
-    post '/api/v1/users', params: user, as: :json
+    post '/api/v1/users', params: user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
     expect(response).to be_successful
     user = JSON.parse(response.body)
     expect(user.is_a? Hash).to eq(true)
@@ -24,7 +24,7 @@ describe "Registration" do
             "password_confirmation": "word"
             }
 
-    post '/api/v1/users', params: user, as: :json
+    post '/api/v1/users', params: user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
     expect(response.status).to eq(400)
     error = JSON.parse(response.body)
     expect(error["message"]).to eq("Password confirmation doesn't match Password")
@@ -38,7 +38,7 @@ describe "Registration" do
             "password_confirmation": "password"
             }
 
-    post '/api/v1/users', params: user, as: :json
+    post '/api/v1/users', params: user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
     expect(response.status).to eq(400)
     error = JSON.parse(response.body)
     expect(error["message"]).to eq("Email has already been taken")
@@ -50,7 +50,7 @@ describe "Registration" do
             "password": "password",
             }
 
-    post '/api/v1/users', params: user, as: :json
+    post '/api/v1/users', params: user.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
     expect(response.status).to eq(400)
     error = JSON.parse(response.body)
     expect(error["message"]).to eq("Password confirmation can't be blank")

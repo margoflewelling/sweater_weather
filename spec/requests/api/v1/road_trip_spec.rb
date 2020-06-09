@@ -9,7 +9,7 @@ require 'rails_helper'
               "api_key": "#{margo.api_key}"
             }
 
-      post '/api/v1/road_trip', params: trip, as: :json
+      post '/api/v1/road_trip', params: trip.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
       expect(response).to be_successful
       trip = JSON.parse(response.body)
       expect(trip).to be_a Hash
@@ -27,7 +27,7 @@ require 'rails_helper'
               "api_key": "FJGUDUJ8937"
             }
 
-      post '/api/v1/road_trip', params: trip, as: :json
+      post '/api/v1/road_trip', params: trip.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
       expect(response.status).to eq(401)
       trip = JSON.parse(response.body)
       expect(trip).to be_a Hash
