@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
       render :status => :created, json: UserSerializer.new(user).serialized_json
     else
       message = user.errors.full_messages.to_sentence
-      render :status => "400", json: {message: message}
+      render :status => 400, json: {message: message}
     end
   end
 
