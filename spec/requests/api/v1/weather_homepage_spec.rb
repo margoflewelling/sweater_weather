@@ -15,7 +15,6 @@ describe "Weather information" do
     expect(response).to be_successful
     image = JSON.parse(response.body)
     expect(image.is_a? Hash).to eq(true)
-    require "pry"; binding.pry
     expect(image["data"]["attributes"]["image"]).to eq("No photo found for this location")
     expect(image["data"]["attributes"].has_key?("city")).to eq(true)
   end
