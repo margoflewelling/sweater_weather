@@ -26,8 +26,8 @@ class Weather
 
   def sanitize_today(today)
     today[:temp] = today[:temp].slice(:day, :min, :max)
-    today[:sunrise] = to_hours(today[:sunrise])
-    today[:sunset] = to_hours(today[:sunset])
+    today[:sunrise] = to_time(today[:sunrise])
+    today[:sunset] = to_time(today[:sunset])
     today.slice(:sunrise, :sunset, :temp, :weather)
   end
 
@@ -49,6 +49,13 @@ class Weather
   def to_hours(dt)
     time = Time.at(dt).to_datetime
     hour = time.strftime("%I %p")
+    hour = hour[1..-1] if hour[0] == "0"
+    hour
+  end
+
+  def to_time(dt)
+    time = Time.at(dt).to_datetime
+    hour = time.strftime("%I:%M %p")
     hour = hour[1..-1] if hour[0] == "0"
     hour
   end
