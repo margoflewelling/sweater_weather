@@ -2,12 +2,12 @@ class SearchResults
 
   def weather(location)
     weather_json = WeatherService.new.weather(geocoordinates(location))
-    weather_info = Weather.new(weather_json)
+    Weather.new(weather_json)
   end
 
   def image(location)
     img = PhotoService.new.photo(location)
-    photo = Photo.new(location, img)
+    Photo.new(location, img)
   end
 
   def trip(origin, destination, user)
