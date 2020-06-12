@@ -651,10 +651,6 @@ require 'rails_helper'
      expect(@weather.daily.first.has_key?(:weather)).to eq(true)
    end
 
-   it "can convert dt to hours" do
-     expect(@weather.to_hours(1591725600)).to eq("12 PM")
-   end
-
    it "can convert dt to day" do
      expect(@weather.to_day(1591725600)).to eq("Tuesday")
    end
